@@ -7,13 +7,17 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-demo-more007"
 		},
-		"dl_adls_adfdemodl1_accountKey": {
+		"ls_ablob_adfdemobhushan_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'dl_adls_adfdemodl1'"
+			"metadata": "Secure string for 'connectionString' of 'ls_ablob_adfdemobhushan'"
 		},
-		"dl_adls_adfdemodl1_properties_typeProperties_url": {
+		"ls_adls_adfdemodl007_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_adfdemodl007'"
+		},
+		"ls_adls_adfdemodl007_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://adfdemobhushan.dfs.core.windows.net/"
+			"defaultValue": "https://adfdemodl007.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -42,11 +46,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"dl_adls_adfdemodl1_accountKey": {
-						"value": "[parameters('dl_adls_adfdemodl1_accountKey')]"
+					"ls_ablob_adfdemobhushan_connectionString": {
+						"value": "[parameters('ls_ablob_adfdemobhushan_connectionString')]"
 					},
-					"dl_adls_adfdemodl1_properties_typeProperties_url": {
-						"value": "[parameters('dl_adls_adfdemodl1_properties_typeProperties_url')]"
+					"ls_adls_adfdemodl007_accountKey": {
+						"value": "[parameters('ls_adls_adfdemodl007_accountKey')]"
+					},
+					"ls_adls_adfdemodl007_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_adfdemodl007_properties_typeProperties_url')]"
 					}
 				}
 			},

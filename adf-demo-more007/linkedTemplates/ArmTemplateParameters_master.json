@@ -5,11 +5,14 @@
 		"factoryName": {
 			"value": "adf-demo-more007"
 		},
-		"dl_adls_adfdemodl1_accountKey": {
+		"ls_ablob_adfdemobhushan_connectionString": {
 			"value": ""
 		},
-		"dl_adls_adfdemodl1_properties_typeProperties_url": {
-			"value": "https://adfdemobhushan.dfs.core.windows.net/"
+		"ls_adls_adfdemodl007_accountKey": {
+			"value": ""
+		},
+		"ls_adls_adfdemodl007_properties_typeProperties_url": {
+			"value": "https://adfdemodl007.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"value": ""
