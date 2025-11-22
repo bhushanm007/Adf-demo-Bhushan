@@ -27,13 +27,7 @@
 						}
 					},
 					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "ds_adls_input_product_csv",
-						"type": "DatasetReference"
-					}
-				]
+				}
 			},
 			{
 				"name": "stored procedure 1",

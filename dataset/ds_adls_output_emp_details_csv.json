@@ -1,0 +1,23 @@
+{
+	"name": "ds_adls_output_emp_details_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_adfdemodl007",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "emp_details.csv",
+				"fileSystem": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
