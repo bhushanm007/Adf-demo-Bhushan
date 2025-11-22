@@ -47,6 +47,20 @@
 						}
 					},
 					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": true
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "ls_ablob_adfdemobhushan",
+								"type": "LinkedServiceReference"
+							},
+							"path": "logging"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
