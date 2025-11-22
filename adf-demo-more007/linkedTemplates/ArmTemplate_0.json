@@ -390,7 +390,7 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
-									"modifiedDatetimeStart": "2025-11-22T16:40:00.000Z",
+									"modifiedDatetimeStart": "2025-11-22T21:40:00.000Z",
 									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
 								},
