@@ -23,6 +23,10 @@
 			"type": "string",
 			"defaultValue": "https://adfdemodl007.dfs.core.windows.net/"
 		},
+		"ls_rest_API_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dummy.restapiexample.com/api/v1/employees"
+		},
 		"ls_sql_adf_demo_db_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "adf-demo-sql-server007.database.windows.net"
@@ -74,6 +78,9 @@
 					"ls_adls_adfdemodl007_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_adfdemodl007_properties_typeProperties_url')]"
 					},
+					"ls_rest_API_properties_typeProperties_url": {
+						"value": "[parameters('ls_rest_API_properties_typeProperties_url')]"
+					},
 					"ls_sql_adf_demo_db_properties_typeProperties_server": {
 						"value": "[parameters('ls_sql_adf_demo_db_properties_typeProperties_server')]"
 					},
@@ -86,6 +93,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adf-demo-more007_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-demo-more007_ArmTemplate_0')]"
+			]
 		}
 	]
 }

@@ -17,6 +17,9 @@
 		"ls_adls_adfdemodl007_properties_typeProperties_url": {
 			"value": "https://adfdemodl007.dfs.core.windows.net/"
 		},
+		"ls_rest_API_properties_typeProperties_url": {
+			"value": "https://dummy.restapiexample.com/api/v1/employees"
+		},
 		"ls_sql_adf_demo_db_properties_typeProperties_server": {
 			"value": "adf-demo-sql-server007.database.windows.net"
 		},
