@@ -1,0 +1,12 @@
+{
+	"name": "ds_rest_API_employees",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_rest_API",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}

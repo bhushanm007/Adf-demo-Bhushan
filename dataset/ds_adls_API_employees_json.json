@@ -1,0 +1,19 @@
+{
+	"name": "ds_adls_API_employees_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_adfdemodl007",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "employees_API.json",
+				"fileSystem": "output"
+			}
+		},
+		"schema": {}
+	}
+}
