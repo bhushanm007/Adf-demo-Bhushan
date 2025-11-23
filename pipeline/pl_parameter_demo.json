@@ -46,7 +46,10 @@
 						"referenceName": "ds_sqldb_adf_demo_dyn",
 						"type": "DatasetReference",
 						"parameters": {
-							"TableName": "dept"
+							"TableName": {
+								"value": "@pipeline().parameters.tableNameFromPipeline",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -58,6 +61,11 @@
 				]
 			}
 		],
+		"parameters": {
+			"tableNameFromPipeline": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
