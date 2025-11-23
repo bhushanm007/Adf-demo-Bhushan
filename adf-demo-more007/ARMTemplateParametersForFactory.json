@@ -11,8 +11,20 @@
 		"ls_adls_adfdemodl007_accountKey": {
 			"value": ""
 		},
+		"ls_sql_adf_demo_db_password": {
+			"value": ""
+		},
 		"ls_adls_adfdemodl007_properties_typeProperties_url": {
 			"value": "https://adfdemodl007.dfs.core.windows.net/"
+		},
+		"ls_sql_adf_demo_db_properties_typeProperties_server": {
+			"value": "adf-demo-sql-server007.database.windows.net"
+		},
+		"ls_sql_adf_demo_db_properties_typeProperties_database": {
+			"value": "adf-demo-sql-db"
+		},
+		"ls_sql_adf_demo_db_properties_typeProperties_userName": {
+			"value": "serveradmin"
 		}
 	}
 }
