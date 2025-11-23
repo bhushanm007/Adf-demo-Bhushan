@@ -1,0 +1,12 @@
+{
+	"name": "pl_variable_demo",
+	"properties": {
+		"variables": {
+			"filename": {
+				"type": "String",
+				"defaultValue": "abcd"
+			}
+		},
+		"annotations": []
+	}
+}
