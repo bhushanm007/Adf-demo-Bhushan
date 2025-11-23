@@ -1,6 +1,31 @@
 {
 	"name": "pl_variable_demo",
 	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "filename",
+					"value": {
+						"value": "@pipeline().parameters.trig_filename",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"trig_filename": {
+				"type": "string",
+				"defaultValue": "xyz"
+			}
+		},
 		"variables": {
 			"filename": {
 				"type": "String",
