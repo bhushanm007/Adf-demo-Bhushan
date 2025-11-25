@@ -1,0 +1,55 @@
+{
+	"name": "pl_switch_demo",
+	"properties": {
+		"activities": [
+			{
+				"name": "Switch1",
+				"type": "Switch",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@pipeline().parameters.country_name",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "IND",
+							"activities": [
+								{
+									"name": "Wait_IND",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 2
+									}
+								}
+							]
+						},
+						{
+							"value": "USA",
+							"activities": [
+								{
+									"name": "Wait_USA",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 3
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"country_name": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
