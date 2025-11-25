@@ -744,7 +744,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@pipeline().parameters.ListOfNumbers",
+								"value": "@pipeline().parameters.ListOFNumbers",
 								"type": "Expression"
 							},
 							"condition": {
@@ -758,7 +758,7 @@
 					"elapsedTimeMetric": {}
 				},
 				"parameters": {
-					"ListOfNumbers": {
+					"ListOFNumbers": {
 						"type": "array",
 						"defaultValue": [
 							1,
