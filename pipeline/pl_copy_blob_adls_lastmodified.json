@@ -18,8 +18,12 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
+							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcNow(),-1)",
+								"type": "Expression"
+							},
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
@@ -50,13 +54,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_adls_input_sales_folder",
+						"referenceName": "ds_ablob_input_sales_folder",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_adls_input_sales_folder",
+						"referenceName": "ds_adls_output_modifierd_within_1day",
 						"type": "DatasetReference"
 					}
 				]

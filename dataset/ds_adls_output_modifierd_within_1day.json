@@ -1,5 +1,5 @@
 {
-	"name": "ds_adls_input_sales_folder",
+	"name": "ds_adls_output_modifierd_within_1day",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls_adfdemodl007",
@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": "modifierd_within_1day",
 				"fileSystem": "output"
 			},
 			"columnDelimiter": ",",
