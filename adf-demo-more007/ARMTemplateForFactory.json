@@ -266,8 +266,12 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
+									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
+									"modifiedDatetimeStart": {
+										"value": "@adddays(utcNow(),-1)",
+										"type": "Expression"
+									},
 									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
 								},
@@ -298,14 +302,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "ds_adls_input_sales_folder",
+								"referenceName": "ds_ablob_input_sales_folder",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "ds_adls_input_sales_folder",
+								"referenceName": "ds_adls_output_modifierd_within_1day",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -318,7 +322,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_adls_input_sales_folder')]"
+				"[concat(variables('factoryId'), '/datasets/ds_ablob_input_sales_folder')]",
+				"[concat(variables('factoryId'), '/datasets/ds_adls_output_modifierd_within_1day')]"
 			]
 		},
 		{
@@ -1533,6 +1538,51 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ds_ablob_input_sales_folder')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_ablob_adfdemobhushan",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "Sales",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Customer",
+						"type": "String"
+					},
+					{
+						"name": "Gender",
+						"type": "String"
+					},
+					{
+						"name": "Product_code",
+						"type": "String"
+					},
+					{
+						"name": "Price",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_ablob_adfdemobhushan')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ds_ablob_input_sales_lastmodified')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1709,7 +1759,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "modified_within1day",
 						"fileSystem": "output"
 					},
 					"columnDelimiter": ",",
@@ -1849,6 +1898,34 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": "India",
+						"fileSystem": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_adls_adfdemodl007')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_adls_output_modifierd_within_1day')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_adls_adfdemodl007",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "modifierd_within_1day",
 						"fileSystem": "output"
 					},
 					"columnDelimiter": ",",
