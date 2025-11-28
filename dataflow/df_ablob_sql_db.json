@@ -1,0 +1,56 @@
+{
+	"name": "df_ablob_sql_db",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_azblob_employee_csv",
+						"type": "DatasetReference"
+					},
+					"name": "sourceblob"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					},
+					"name": "sinksql",
+					"rejectedDataLinkedService": {
+						"referenceName": "ls_ablob_adfdemobhushan",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Emp_id as string,",
+				"          Name as string,",
+				"          Gender as string,",
+				"          Salary as string,",
+				"          Dept_id as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> sourceblob",
+				"sourceblob sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'allErrors',",
+				"     transactionCommit: 'single',",
+				"     reportSuccessOnError: false) ~> sinksql"
+			]
+		}
+	}
+}

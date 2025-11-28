@@ -12,16 +12,12 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [
+			"sinks": [],
+			"transformations": [
 				{
-					"dataset": {
-						"referenceName": "ds_adls_output_folder",
-						"type": "DatasetReference"
-					},
-					"name": "sink1"
+					"name": "select1"
 				}
 			],
-			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          Emp_id as integer,",
@@ -35,20 +31,15 @@
 				"     ignoreNoFilesFound: false,",
 				"     preferredIntegralType: 'integer',",
 				"     partitionBy('hash', 1)) ~> source1",
-				"source1 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     partitionFileNames:['df_output.csv'],",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     mapColumn(",
+				"source1 select(mapColumn(",
 				"          Emp_id,",
-				"          First_Name = Name,",
+				"          Name,",
+				"          Gender,",
 				"          Salary,",
 				"          Dept_id",
-				"     )) ~> sink1"
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
