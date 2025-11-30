@@ -1,0 +1,26 @@
+{
+	"name": "ds_sql_adf_demo_dept",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_adf_demo_db",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Dept_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Dept_Name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dept"
+		}
+	}
+}
